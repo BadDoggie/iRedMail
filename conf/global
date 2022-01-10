@@ -75,6 +75,9 @@ export USE_EXISTING_MYSQL="${USE_EXISTING_MYSQL:=NO}"
 # Should be set to NO if you're installing iRedMail with a MySQL cluster, and
 # you're installing on second or later nodes.
 export INITIALIZE_SQL_DATA="${INITIALIZE_SQL_DATA:=YES}"
+# If using an AWS RDS Database, don't 'GRANT ALL ON *.*'. This grant shouldn't
+# be needed if you pass the cluster admin credentials into MYSQL_ROOT_USER.
+export AWS_RDS_DATABASE="${AWS_RDS_DATABASE:=NO}"
 
 # PGSQL server
 export PGSQL_SERVER_ADDRESS="${PGSQL_SERVER_ADDRESS:=${LOCAL_ADDRESS}}"
