@@ -202,7 +202,9 @@ fail2ban_setup() {
     ECHO_INFO "Configure Fail2ban (authentication failure monitor)."
 
     check_status_before_run fail2ban_post_installation
-    check_status_before_run fail2ban_initialize_db
+    if [ X"${INITIALIZE_SQL_DATA}" == X'YES' ]; then
+        check_status_before_run fail2ban_initialize_db
+    fi
     check_status_before_run fail2ban_config
     check_status_before_run fail2ban_syslog_setup
 
